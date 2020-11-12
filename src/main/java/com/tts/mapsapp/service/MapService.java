@@ -25,6 +25,21 @@ public class MapService {
         location.setLng(coordinates.getLng());
     }
 
+    public void getRandomLocation(Location location) {
+        String url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + 
+        location.getLat() + "," + location.getLng() + "&key=" + apiKey;
+
+        RestTemplate restTemplate = new RestTemplate();
+
+        Object response = restTemplate.getForObject(url, Object.class);
+        
+        // Location coordinates = response.results.get(0);
+
+        System.out.println(url);
+    }
+
+
+
     
 
 }
