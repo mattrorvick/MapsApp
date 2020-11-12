@@ -1,5 +1,7 @@
 package com.tts.mapsapp.controller;
 
+import java.util.Random;
+
 import com.tts.mapsapp.models.Location;
 import com.tts.mapsapp.service.MapService;
 
@@ -31,6 +33,28 @@ public class MapController {
 
         return "index";
     }
+
+
+    @PostMapping("/random")
+    public String getRandomCity(Model model) {
+
+        Location location = new Location();
+
+        location.setLat("40.3783");
+        location.setLng("-90.3893");
+
+        mapService.getRandomLocation(location);
+
+        model.addAttribute(new Location());
+
+        return "index";
+
+    }
+
+    
+    
+
+
 
 
 }
